@@ -29,10 +29,20 @@ else {
   for (count = 0; count < inputWord.length; count++) {
     console.log(count + " , " + inputWord.charAt(count), vowelLoc);
     if (isVowel(inputWord.charAt(count))){
-      vowelLoc = count;
-      // this is slicing up the word from the vowel location and putting the stuff in front to the end of the word
-      pigWord = inputWord.slice(vowelLoc,vowelLoc.length)+inputWord.slice(0,vowelLoc)+"ay";
-      break; //this should break us out of the for loop once it finds the first vowel
+      vowelLoc = count; // A variable to track vowel location
+
+      if(inputWord.substr(vowelLoc-1,2)==="qu" || inputWord.substr(vowelLoc-1,2)==="QU" || inputWord.substr(vowelLoc-1,2)==="Qu" || inputWord.substr(vowelLoc-1,2)==="qU")
+      {
+        // we found a U or u, and a Q or q before it so
+        // keep looping and look for the next vowel
+        console.log("found a q and u together");
+      }
+      else {
+        // this is slicing up the word from the vowel location and putting the stuff in front to the end of the word
+        pigWord = inputWord.slice(vowelLoc,vowelLoc.length)+inputWord.slice(0,vowelLoc)+"ay";
+        break; //this should break us out of the for loop once it finds the first vowel
+      }
+
     }
     else {
       //no vowel in the word, just add ay to end
