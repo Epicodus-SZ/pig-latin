@@ -21,7 +21,7 @@ var pigWord = "";
 
 //Spec #1: If the word starts with a vowel add WAY to end
 if (isVowel(inputWord.charAt(0))) {
- return inputWord+"way"; //TBD more code here
+ pigWord = inputWord+"way"; //TBD more code here
 }
 else {
   //Words beginning with one or more consonants, moves all the first consecutive consonants to the end, and add an "ay" at the end|blow|owblay|
@@ -31,20 +31,17 @@ else {
     if (isVowel(inputWord.charAt(count))){
       vowelLoc = count;
       // this is slicing up the word from the vowel location and putting the stuff in front to the end of the word
-      return inputWord.slice(vowelLoc,vowelLoc.length)+inputWord.slice(0,vowelLoc-1)
+      pigWord = inputWord.slice(vowelLoc,vowelLoc.length)+inputWord.slice(0,vowelLoc)+"ay";
+      break; //this should break us out of the for loop once it finds the first vowel
     }
     else {
       //no vowel in the word, just add ay to end
-      return inputWord+"ay";
+      pigWord = inputWord+"ay";
     }
   }
 
-//search through inputWord and look for a vowel
-//at first vowel, move head string above that, to the end of the word
-
-
 }
-
+ return pigWord;
 }
 
 //function that tests a single character to see if its a vowel
