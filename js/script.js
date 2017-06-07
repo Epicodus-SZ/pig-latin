@@ -1,7 +1,7 @@
 // *********
 //business logic
 // ********
-var vowels = ["a","e","i","o","u","A","E","I","O","U"];
+var vowels = ["a","e","i","o","u","y","A","E","I","O","U","Y"];
 
 //function that splits up the string into words, and returns a pig latin sentence (that we call results)
 var pigLatin = function(englishSentence){
@@ -20,8 +20,9 @@ var convertWord = function(inputWord){
 var pigWord = "";
 
 //Spec #1: If the word starts with a vowel add WAY to end
-if (isVowel(inputWord.charAt(0))) {
- pigWord = inputWord+"way"; //TBD more code here
+if (isVowel(inputWord.charAt(0)) && (inputWord.charAt(0) != "y" || inputWord.charAt(0) != "Y" ) ) {
+
+   pigWord = inputWord+"way"; //TBD more code here
 }
 else {
   //Words beginning with one or more consonants, moves all the first consecutive consonants to the end, and add an "ay" at the end|blow|owblay|
